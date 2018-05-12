@@ -22,18 +22,18 @@
 
 <script>
 export default {
-  name: 'getUserInfo',
+  name: "getUserInfo",
   data() {
     return {
-      userid: '',
-      msg: '查询用户信息',
-      notice: ''
-    }
+      userid: "",
+      msg: "查询用户信息",
+      notice: ""
+    };
   },
   computed: {
     str: function() {
       return JSON.stringify({
-        'userid': this.userid
+        userid: this.userid
       });
     }
   },
@@ -41,25 +41,24 @@ export default {
     getUserInfo() {
       const that = this;
       //根据用户id查询用户信息
-      fetch('http://localhost:9000/getUserInfo?userid=' + this.userid, {
+      fetch("http://localhost:9000/getUserInfo?userid=" + this.userid, {
         method: "GET",
         mode: "cors"
-      }).then(function(response) {
-        console.log(response);
-        response.text().then(function(data){
-          console.log(data);
-          that.notice = data;
-
+      })
+        .then(function(response) {
+          console.log(response);
+          response.text().then(function(data) {
+            console.log(data);
+            that.notice = data;
+          });
+          return;
+        })
+        .catch(function(error) {
+          alert(error);
         });
-        return ;
-      }).catch(function(error) {
-        alert(error);
-      });
-
-
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -50,35 +50,9 @@ export default {
       const that = this;
 
       //POST请求模式  创建用户 也就是将来的注册流程
-      fetch('http://localhost:9000/createUserPost', {
-        body: JSON.stringify(this.str),
-        method: "POST",
-        mode: "cors"
-      }).then(function(response) {
-        console.log(response);
-        response.text().then(function(data) {
-          console.log(data);
-          var obj = JSON.parse(data);
-          console.log(obj);
-          if (obj.code == "yes") {
-            that.notice = obj.description;
-          } else if (obj.code == "no") {
-            that.notice = obj.description;
-            alert(obj.description);
-          } else {
-            that.notice = "response error!"
-            alert("response error!")
-          }
-          return;
-        })
-
-      }).catch(function(error) {
-        alert(error)
-      });
-
-      // GET请求模式
-      // fetch('http://localhost:9000/createUserGet?username=' + this.username + '&password=' + this.password + '&nickname=' + this.nickname, {
-      //   method: "GET",
+      // fetch('http://localhost:3000/users/createUserPost', {
+      //   body: JSON.stringify(this.str),
+      //   method: "POST",
       //   mode: "cors"
       // }).then(function(response) {
       //   console.log(response);
@@ -97,10 +71,36 @@ export default {
       //     }
       //     return;
       //   })
-      //
+
       // }).catch(function(error) {
       //   alert(error)
       // });
+
+      // GET请求模式
+      fetch('http://localhost:3000/users/createUserGet?username=' + this.username + '&password=' + this.password + '&nickname=' + this.nickname, {
+        method: "GET",
+        mode: "cors"
+      }).then(function(response) {
+        console.log(response);
+        response.text().then(function(data) {
+          console.log(data);
+          var obj = JSON.parse(data);
+          console.log(obj);
+          if (obj.code == "yes") {
+            that.notice = obj.description;
+          } else if (obj.code == "no") {
+            that.notice = obj.description;
+            alert(obj.description);
+          } else {
+            that.notice = "response error!"
+            alert("response error!")
+          }
+          return;
+        })
+      
+      }).catch(function(error) {
+        alert(error)
+      });
 
     }
   }

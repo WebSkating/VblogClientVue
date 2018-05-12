@@ -1,23 +1,20 @@
 <template>
   <div id="app">
+    <navbar></navbar>
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
+    <myfooter></myfooter>
   </div>
 </template>
 
 <script>
+import navbar from "./components/navbar";
+import myfooter from "./components/footer";
 export default {
-  name: 'App'
+  name: 'App',
+  components: { navbar: navbar,myfooter:myfooter }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
