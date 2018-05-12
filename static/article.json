@@ -4,7 +4,7 @@
     "content":"第一条微博第一条微博第一条微博第一条微博第一条微博第一条微博第一条微博第一条微博",
     "createDate":"2014-06-01 19:00:00",
     "updateDate":"2014-06-05 14:00:00",
-    "userid":"1",
+    "author":"孙闯",
     "starNum":"0"
 },{
     "id": "2",
@@ -12,7 +12,7 @@
     "content": "第一条微博",
     "createDate": "2014-06-01 19:00:00",
     "updateDate": "2014-06-05 14:00:00",
-    "userid": "1",
+    "author": "孙闯",
     "starNum": "0"
 },{
     "id": "3",
@@ -20,7 +20,7 @@
     "content": "第一条微博",
     "createDate": "2014-06-01 19:00:00",
     "updateDate": "2014-06-05 14:00:00",
-    "userid": "1",
+    "author": "孙闯",
     "starNum": "0"
 },{
     "id": "4",
@@ -28,7 +28,7 @@
     "content": "第一条微博",
     "createDate": "2014-06-01 19:00:00",
     "updateDate": "2014-06-05 14:00:00",
-    "userid": "1",
+    "author": "孙闯",
     "starNum": "0"
 },{
     "id": "5",
@@ -36,7 +36,7 @@
     "content": "第一条微博",
     "createDate": "2014-06-01 19:00:00",
     "updateDate": "2014-06-05 14:00:00",
-    "userid": "1",
+    "author": "孙闯",
     "starNum": "0"
 },{
     "id": "6",
@@ -44,6 +44,6 @@
     "content": "第一条微博",
     "createDate": "2014-06-01 19:00:00",
     "updateDate": "2014-06-05 14:00:00",
-    "userid": "1",
+    "author": "孙闯",
     "starNum": "0"
 }]

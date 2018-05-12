@@ -10,13 +10,15 @@
             </li>
         </ul>
         <div>
-            <p class="cp">没有更多数据了</p>
+            <p class="cp" v-show="showNone">没有更多数据了</p>
             <hr>
         </div>
    </div>
 </template>
 
 <script>
+//在一个地方require所有组件使用
+var axios = require("axios");
 export default {
   name: "indexPage",
   data() {
@@ -24,34 +26,39 @@ export default {
       items: [],
       pageIndex: 0,
       pageSize: 10,
-      pageNum: 1
+      pageNum: 1,
+      showNone: false
     };
   },
-  created: function() {
-    var that = this;
-    fetch(
-      "../../static/article.json" +
-        "?pageIndex=" +
-        this.pageIndex +
-        "&pageSize=" +
-        this.pageSize +
-        "&pageNum=" +
-        this.pageNum,
-      {
-        method: "GET",
-        mode: "cors"
-      }
-    )
-      .then(function(response) {
-        response.text().then(function(data) {
-          console.log(data);
-          //   var arr = JSON.parse(data);
-          that.items = JSON.parse(data);
+  methods: {
+    getData() {
+      var that = this;
+      axios
+        .get(
+          "../../static/article.json" +
+            "?pageIndex=" +
+            this.pageIndex +
+            "&pageSize=" +
+            this.pageSize +
+            "&pageNum=" +
+            this.pageNum
+        )
+        .then(function(response) {
+          console.log(response);
+          that.items = response.data;
+          if (response.data.length < 10) {
+            that.showNone = true;
+          } else {
+            that.showNone = false;
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
         });
-      })
-      .catch(function(error) {
-        alert(error);
-      });
+    }
+  },
+  created: function() {
+    this.getData();
   }
 };
 </script>
@@ -76,12 +83,12 @@ li h2 {
 li p {
   padding: 0;
   margin: 0;
-  text-align:left;
+  text-align: left;
   align-items: flex-start;
   height: 4rem;
 }
-.cp{
-    font-size: 1.5rem;
-    text-align: center;
+.cp {
+  font-size: 1.5rem;
+  text-align: center;
 }
 </style>
